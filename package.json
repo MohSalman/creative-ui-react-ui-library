@@ -2,7 +2,7 @@
   "name": "@mohammadsalman/storybook-custom-ui",
   "description": "A minimal React TypeScript component library with Button component and useFormInput hook",
 
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "dist/index.js", 
   "module": "dist/index.esm.js",  
   "types": "dist/index.d.ts", 
