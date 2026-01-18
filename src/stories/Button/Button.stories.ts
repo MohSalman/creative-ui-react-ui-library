@@ -1,23 +1,21 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { fn } from 'storybook/test';
+import { fn } from "storybook/test";
 
-import { Button } from './Button';
+import { Button } from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/Button',
+  title: "Example/Button",
   component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered',
+    layout: "centered",
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
@@ -28,35 +26,59 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
-    primary: false,
     label: "test",
+    variant: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
     // primary: false,
-    label: 'Button',
+    label: "Button",
+    variant: "secondary",
   },
 };
 
-export const Large: Story = {
+export const Success: Story = {
   args: {
-    size: 'large',
-    label: 'Button',
+    // size: "large",
+    label: "Button",
+    variant: "success",
   },
 };
 
-export const Small: Story = {
+export const Danger: Story = {
   args: {
-    size: 'small',
-    label: 'Button',
+    // size: "small",
+    label: "Button",
+    variant: "danger",
   },
 };
 
-export const Tets: Story = {
+export const Warning: Story = {
   args: {
-    primary: true,
-    label: "test"
-  }
+    variant: "warning",
+    label: "test",
+  },
+};
+
+export const Info: Story = {
+  args: {
+    variant: "info",
+    label: "test",
+  },
+};
+
+export const Light: Story = {
+  args: {
+    variant: "light",
+    label: "test",
+  },
+};
+
+export const Dark: Story = {
+  args: {
+    variant: "dark",
+    label: "test",
+  },
 };

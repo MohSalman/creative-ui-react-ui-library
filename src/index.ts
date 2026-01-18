@@ -13,3 +13,10 @@ export type { HeaderProps } from './stories/Header/Header';
 
 // Export Page component
 export { Page } from './stories/Page/Page';
+
+
+// Export theme
+export * from './theme';
+
+// Export utils
+export * from './utils';

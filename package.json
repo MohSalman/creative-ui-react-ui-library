@@ -1,15 +1,15 @@
 {
   "name": "@mohammadsalman/storybook-custom-ui",
   "description": "A minimal React TypeScript component library with Button component and useFormInput hook",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.esm.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs.js"
     },
     "./dist/index.css": "./dist/index.css"
   },

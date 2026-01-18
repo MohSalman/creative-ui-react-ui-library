@@ -1,30 +1,109 @@
-.storybook-button {
+/* Base/default button styles */
+.button {
   display: inline-block;
   cursor: pointer;
   border: 0;
-  border-radius: 3em;
-  font-weight: 700;
+  border-radius: 0.5rem;
+  font-weight: 500;
   line-height: 1;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  transition: all 0.2s;
+  font-family: inherit;
 }
-.storybook-button--primary {
-  background-color: #555ab9;
+
+/* Size variants */
+.button--small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.button--medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.button--large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Color variants - using CSS custom properties from theme */
+.button--primary {
+  background-color: var(--color-primary);
   color: white;
 }
-.storybook-button--secondary {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-  background-color: transparent;
-  color: #333;
+
+.button--primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover, color-mix(in srgb, var(--color-primary) 85%, black));
 }
-.storybook-button--small {
-  padding: 10px 16px;
-  font-size: 12px;
+
+.button--secondary {
+  background-color: var(--color-secondary);
+  color: white;
 }
-.storybook-button--medium {
-  padding: 11px 20px;
-  font-size: 14px;
+
+.button--secondary:hover:not(:disabled) {
+  background-color: var(--color-secondary-hover, color-mix(in srgb, var(--color-secondary) 85%, black));
 }
-.storybook-button--large {
-  padding: 12px 24px;
-  font-size: 16px;
+
+.button--success {
+  background-color: var(--color-success);
+  color: white;
+}
+
+.button--success:hover:not(:disabled) {
+  background-color: var(--color-success-hover, color-mix(in srgb, var(--color-success) 85%, black));
+}
+
+.button--danger {
+  background-color: var(--color-danger);
+  color: white;
+}
+
+.button--danger:hover:not(:disabled) {
+  background-color: var(--color-danger-hover, color-mix(in srgb, var(--color-danger) 85%, black));
+}
+
+.button--warning {
+  background-color: var(--color-warning);
+  color: var(--color-dark);
+}
+
+.button--warning:hover:not(:disabled) {
+  background-color: var(--color-warning-hover, color-mix(in srgb, var(--color-warning) 85%, black));
+}
+
+.button--info {
+  background-color: var(--color-info);
+  color: white;
+}
+
+.button--info:hover:not(:disabled) {
+  background-color: var(--color-info-hover, color-mix(in srgb, var(--color-info) 85%, black));
+}
+
+.button--light {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  border: 1px solid var(--color-border, #dee2e6);
+}
+
+.button--light:hover:not(:disabled) {
+  background-color: var(--color-light-hover, color-mix(in srgb, var(--color-light) 92%, black));
+}
+
+.button--dark {
+  background-color: var(--color-dark);
+  color: white;
+}
+
+.button--dark:hover:not(:disabled) {
+  background-color: var(--color-dark-hover, color-mix(in srgb, var(--color-dark) 80%, white));
+}
+
+.button--disabled,
+.button:disabled {
+  background-color: var(--color-disabled);
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
 }

@@ -1,10 +1,10 @@
 // import { cn } from '../../lib/utils';
+import { useTheme } from '../../theme';
+import { cn, getColorByVariant, getVariantClass } from '../../utils';
 import './card.css';
+import { Button } from '../Button/Button';
 
 // Utility function to combine class names
-const cn = (...classes: (string | undefined | null)[]): string => {
-  return classes.filter(Boolean).join(' ');
-};
 export type CardVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'disabled';
 
 export interface CardProps {
@@ -17,7 +17,6 @@ export interface CardProps {
   cardTitleClass?: string;
   cardBodyClass?: string;
   /** What background color to use */
-  backgroundColor?: string;
 
   cardButtonClass?: string;
 
@@ -31,22 +30,28 @@ export const Card = ({
   cardHeaderClass,
   cardFooterClass,
   cardTitleClass,
-  cardButtonClass,
-  backgroundColor,
   cardBodyClass,
   children,
   variant = 'primary',
   ...props
 }: CardProps) => {
-  const variantClass = `card-custom-${variant}`;
+  const theme = useTheme();
+  // const variantClass = `card-custom-${variant}`;
+  const variantColor = getColorByVariant(theme, variant);
+  const variantClass = getVariantClass('card', variant);
   const isDisabled = variant === 'disabled';
-  const isDisabledClass = isDisabled ? 'card-custom-danger-disabled' : '';
+  const cardStyle = {
+    backgroundColor: variant === 'disabled' ? theme.colors.disabled : variantColor,
+    color: variant === 'light' ? theme.colors.dark : theme.colors.white,
+    padding: theme.spacing.md,
+    borderRadius: theme.borderRadius.md,
+  };
   return (
     <div
       role="card-custom"
       aria-label="card-custom"
-      className={cn(className, 'card-custom', variantClass, isDisabledClass)}
-      style={{ backgroundColor }}
+      className={cn('card', variantClass, className)}
+      style={cardStyle}
       aria-disabled={isDisabled ? true : false}
       {...props}
     >
@@ -57,7 +62,12 @@ export const Card = ({
         {children}
       </div>
       <div className={cn(cardFooterClass, 'card-footer-custom')}>
-        <button className={cn(cardButtonClass, 'btn-custom')}>Action</button>
+        <Button 
+          label="Action"
+          variant={variant}
+          size="medium"
+          onClick={() => {}}
+        />
       </div>
     </div>
   );

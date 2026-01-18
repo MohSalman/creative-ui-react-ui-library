@@ -1,11 +1,11 @@
-
 import './button.css';
+import { cn, getVariantClass } from '../../utils';
 
-export interface ButtonProps {
-  /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
+export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'disabled';
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Button variant style */
+  variant?: ButtonVariant;
   /** How large should the button be? */
   size?: 'small' | 'medium' | 'large';
   /** Button contents */
@@ -16,18 +16,28 @@ export interface ButtonProps {
 
 /** Primary UI component for user interaction */
 export const Button = ({
-  primary = false,
+  variant = 'primary',
   size = 'medium',
-  backgroundColor,
   label,
+  className,
+  style,
+  onClick,
+  disabled,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const variantClass = getVariantClass('button', variant);
+  const sizeClass = size ? `button--${size}` : '';
+  const isDisabled = variant === 'disabled' || disabled;
+  
+  // Combine classes: base class, variant class, size class, user's custom class
+  const buttonClassName = cn('button', variantClass, sizeClass, isDisabled && 'button--disabled', className);
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
+      className={buttonClassName}
+      style={style}
+      disabled={isDisabled}
+      onClick={onClick}
       {...props}
     >
       {label}

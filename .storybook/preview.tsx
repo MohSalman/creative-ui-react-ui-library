@@ -20,13 +20,11 @@ const preview: Preview = {
     }
   },
   decorators: [
-    (Story) => {
-      return React.createElement(
-        ThemeProvider,
-        { theme: defaultTheme, children: React.createElement(Story) },
-        React.createElement(Story)
-      );
-    },
+    (Story) => (
+      <ThemeProvider theme={defaultTheme}>
+        <Story />
+      </ThemeProvider>
+    ),
   ],
 };
 
