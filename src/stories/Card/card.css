@@ -1,0 +1,137 @@
+/* =====================================================
+   Card Component – Base Styles
+   ===================================================== */
+   .card-custom {
+    background-color: var(--card-bg, #ffffff);
+    color: var(--card-text, #111827);
+    border-radius: 0.75rem;
+    /* border: 1px solid var(--card-border, #e5e7eb); */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    min-width: 300px;
+  }
+  
+  .card-custom:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* =====================================================
+     Card Sections
+     ===================================================== */
+  .card-header-custom {
+    padding: 1rem 1.25rem;
+    /* border-bottom: 1px solid var(--card-border, #e5e7eb); */
+    background-color: var(--card-header-bg, transparent);
+  }
+  
+  .card-title-custom {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  .card-body-custom {
+    padding: 1.25rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .card-footer-custom {
+    padding: 1rem 1.25rem;
+    /* border-top: 1px solid var(--card-border, #e5e7eb); */
+    background-color: var(--card-footer-bg, transparent);
+  }
+  
+  /* =====================================================
+     Card Variants – Color Based (Theme Driven)
+     ===================================================== */
+  
+  /* Primary */
+  .card-custom--primary {
+    --card-border: var(--color-primary);
+    --card-header-bg: color-mix(in srgb, var(--color-primary) 12%, white);
+  }
+  
+  /* Secondary */
+  .card-custom--secondary {
+    --card-border: var(--color-secondary);
+    --card-header-bg: color-mix(in srgb, var(--color-secondary) 12%, white);
+  }
+  
+  /* Success */
+  .card-custom--success {
+    --card-border: var(--color-success);
+    --card-header-bg: color-mix(in srgb, var(--color-success) 12%, white);
+  }
+  
+  /* Danger */
+  .card-custom--danger {
+    --card-border: var(--color-danger);
+    --card-header-bg: color-mix(in srgb, var(--color-danger) 12%, white);
+  }
+  
+  /* Warning */
+  .card-custom--warning {
+    --card-border: var(--color-warning);
+    --card-header-bg: color-mix(in srgb, var(--color-warning) 18%, white);
+  }
+  
+  /* Info */
+  .card-custom--info {
+    --card-border: var(--color-info);
+    --card-header-bg: color-mix(in srgb, var(--color-info) 12%, white);
+  }
+  
+  /* Light */
+  .card-custom--light {
+    --card-bg: var(--color-light);
+    --card-border: var(--color-border, #dee2e6);
+  }
+  
+  /* Dark */
+  .card-custom--dark {
+    --card-bg: var(--color-dark);
+    --card-text: #ffffff;
+    --card-border: var(--color-dark);
+  }
+  
+  .card-custom--dark .card-header-custom,
+  .card-custom--dark .card-footer-custom {
+    border-color: color-mix(in srgb, white 20%, transparent);
+  }
+  
+  /* =====================================================
+     Card State Variants
+     ===================================================== */
+  
+  /* Disabled */
+  .card-custom--disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  /* Clickable */
+  .card-custom--clickable {
+    cursor: pointer;
+  }
+  
+  .card-custom--clickable:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* =====================================================
+     Optional Size Variants
+     ===================================================== */
+  
+  .card-custom--small .card-body-custom {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .card-custom--large .card-body-custom {
+    padding: 1.75rem;
+    font-size: 1.05rem;
+  }
+  

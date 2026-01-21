@@ -1,0 +1,18 @@
+/* Global styles for Storybook - Add padding around all stories */
+.sb-story,
+[data-story],
+.sb-main-padded,
+.sb-main-centered {
+  padding: 2rem !important;
+}
+
+/* Target the canvas iframe content */
+#storybook-root,
+#root {
+  padding: 2rem !important;
+}
+
+/* Target story wrapper */
+.sb-wrapper {
+  padding: 2rem !important;
+}

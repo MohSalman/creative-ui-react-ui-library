@@ -11,6 +11,10 @@ export type { CardProps } from './stories/Card/Card';
 export { Header } from './stories/Header/Header';
 export type { HeaderProps } from './stories/Header/Header';
 
+// Export Typography component
+export { Typography } from './stories/Typography/Typography';
+export type { TypographyProps } from './stories/Typography/Typography';
+
 // Export Page component
 export { Page } from './stories/Page/Page';
 

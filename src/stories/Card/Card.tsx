@@ -1,13 +1,12 @@
 // import { cn } from '../../lib/utils';
-import { useTheme } from '../../theme';
-import { cn, getColorByVariant, getVariantClass } from '../../utils';
+import { cn, getVariantClass } from '../../utils';
 import './card.css';
 import { Button } from '../Button/Button';
 
 // Utility function to combine class names
-export type CardVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'disabled';
+export type CardVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'disabled' | "";
 
-export interface CardProps {
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: CardVariant;
   /** Is this the principal call to action on the page? */
   primary?: boolean;
@@ -17,8 +16,9 @@ export interface CardProps {
   cardTitleClass?: string;
   cardBodyClass?: string;
   /** What background color to use */
-
+  disabled?: boolean;
   cardButtonClass?: string;
+  size?: 'small' | 'medium' | 'large' | "";
 
   /** Card contents */
   children: React.ReactNode;
@@ -32,27 +32,23 @@ export const Card = ({
   cardTitleClass,
   cardBodyClass,
   children,
-  variant = 'primary',
+  style,
+  size = '',
+  disabled,
+  variant = '',
   ...props
 }: CardProps) => {
-  const theme = useTheme();
-  // const variantClass = `card-custom-${variant}`;
-  const variantColor = getColorByVariant(theme, variant);
-  const variantClass = getVariantClass('card', variant);
-  const isDisabled = variant === 'disabled';
-  const cardStyle = {
-    backgroundColor: variant === 'disabled' ? theme.colors.disabled : variantColor,
-    color: variant === 'light' ? theme.colors.dark : theme.colors.white,
-    padding: theme.spacing.md,
-    borderRadius: theme.borderRadius.md,
-  };
+  const variantClass = variant ? getVariantClass('card-custom', variant) : '';
+  const isDisabled = variant === 'disabled' || disabled;
+  const sizeClass = size ? `card--${size}` : '';
+  const cardClassName = cn('card-custom', variantClass, sizeClass, isDisabled && 'card--disabled', className);
   return (
     <div
       role="card-custom"
       aria-label="card-custom"
-      className={cn('card', variantClass, className)}
-      style={cardStyle}
-      aria-disabled={isDisabled ? true : false}
+      className={cardClassName}
+      style={style}
+      aria-disabled={isDisabled}
       {...props}
     >
       <div className={cn(cardHeaderClass, 'card-header-custom')}>

@@ -1,7 +1,7 @@
 import './button.css';
 import { cn, getVariantClass } from '../../utils';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'disabled';
+export type ButtonVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'disabled' | "";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Button variant style */
@@ -16,7 +16,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 /** Primary UI component for user interaction */
 export const Button = ({
-  variant = 'primary',
+  variant = '',
   size = 'medium',
   label,
   className,
@@ -25,7 +25,7 @@ export const Button = ({
   disabled,
   ...props
 }: ButtonProps) => {
-  const variantClass = getVariantClass('button', variant);
+  const variantClass = variant ? getVariantClass('button', variant) : '';
   const sizeClass = size ? `button--${size}` : '';
   const isDisabled = variant === 'disabled' || disabled;
   

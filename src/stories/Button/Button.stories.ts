@@ -82,3 +82,11 @@ export const Dark: Story = {
     label: "test",
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    variant: "disabled",
+    label: "test",
+  },
+};
+

@@ -42,6 +42,21 @@ npm install react@^19.2.0 react-dom@^19.2.0
 
 ## Usage
 
+### Import CSS Styles (Required)
+
+You need to import the CSS file in your project to apply the component styles:
+
+```tsx
+// In your main entry file (e.g., main.tsx, index.tsx, App.tsx)
+import '@mohammadsalman/storybook-custom-ui/index.css';
+```
+
+Or in your CSS file:
+
+```css
+@import '@mohammadsalman/storybook-custom-ui/index.css';
+```
+
 ### Setup Theme Provider (Recommended)
 
 Wrap your application with `ThemeProvider` to enable theme-based styling:
@@ -49,6 +64,7 @@ Wrap your application with `ThemeProvider` to enable theme-based styling:
 ```tsx
 import React from 'react';
 import { ThemeProvider, defaultTheme } from '@mohammadsalman/storybook-custom-ui';
+import '@mohammadsalman/storybook-custom-ui/index.css';
 
 function App() {
   return (
@@ -64,6 +80,7 @@ function App() {
 ```tsx
 import React from 'react';
 import { Button, Card } from '@mohammadsalman/storybook-custom-ui';
+import '@mohammadsalman/storybook-custom-ui/index.css'; // Import CSS styles
 
 function App() {
   return (
