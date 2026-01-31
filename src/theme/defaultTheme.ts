@@ -3,6 +3,8 @@ import type { Theme } from "./types";
 export const defaultTheme: Theme = {
     colors: {
         primary: '#2563EB',   // Blue 600 – trust, brand, actions
+        background: '#ffffff',
+        surface: '#ffffff',
         secondary: '#64748B', // Slate 500 – subtle UI elements
         success: '#16A34A',   // Green 600 – success states
         danger: '#DC2626',    // Red 600 – errors & destructive actions

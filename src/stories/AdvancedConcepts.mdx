@@ -1,0 +1,173 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Advanced Concepts" />
+
+# Advanced Concepts
+
+This guide covers advanced patterns and practices used in the component library.
+
+---
+
+## Token-based theming
+
+The library uses **design tokens** – semantic names that map to actual values. Components reference `var(--color-primary)` instead of hardcoded hex colors, so you can change the look globally.
+
+### How it works
+
+1. **Theme definition** – Tokens live in `src/theme/defaultTheme.ts`:
+   - Colors: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`, `disabled`
+   - Typography: `fontFamily`, `fontSize`, `fontWeight`, `lineHeight`
+   - Spacing, `borderRadius`, `boxShadow`, `breakpoints`
+
+2. **CSS variables** – `ThemeProvider` writes tokens to the document root:
+   ```css
+   --color-primary: #2563EB;
+   --font-size-md: 16px;
+   ```
+
+3. **Component usage** – Components use variables:
+   ```css
+   .button { background: var(--color-primary); }
+   ```
+
+### Extending the theme
+
+Wrap your app with `ThemeProvider` and pass a custom theme:
+
+```tsx
+import { ThemeProvider } from '@mohammadsalman/storybook-custom-ui';
+
+const customTheme = {
+  colors: { primary: '#7C3AED', /* ... */ },
+  typography: { /* ... */ },
+};
+
+<ThemeProvider theme={customTheme}>
+  <App />
+</ThemeProvider>
+```
+
+---
+
+## Dark / light mode
+
+The library supports **dark and light** themes. Use `ThemeProvider` with `mode` and `onModeChange` to switch.
+
+### Usage
+
+```tsx
+import { ThemeProvider, useTheme } from '@mohammadsalman/storybook-custom-ui';
+
+function App() {
+  const [mode, setMode] = useState<'light' | 'dark'>('light');
+
+  return (
+    <ThemeProvider mode={mode} onModeChange={setMode}>
+      <YourApp />
+    </ThemeProvider>
+  );
+}
+```
+
+### How components adapt
+
+Components use semantic tokens that differ per mode:
+- Light: `--color-bg: #ffffff`, `--color-text: #0F172A`
+- Dark: `--color-bg: #0F172A`, `--color-text: #F8FAFC`
+
+Ensure your CSS uses these variables instead of fixed colors.
+
+---
+
+## Compound components
+
+**Compound components** split a feature into small pieces that work together via shared context. Examples: `Select` with `Select.Trigger` and `Select.Options`, or a `Card` with `Card.Header` and `Card.Body`.
+
+### Pattern
+
+```tsx
+const CardContext = createContext(null);
+
+function Card({ children }) {
+  return (
+    <CardContext.Provider value={{}}>
+      <div className="card">{children}</div>
+    </CardContext.Provider>
+  );
+}
+
+Card.Header = function CardHeader({ children }) {
+  return <div className="card-header">{children}</div>;
+};
+
+Card.Body = function CardBody({ children }) {
+  return <div className="card-body">{children}</div>;
+};
+```
+
+### Benefits
+
+- Flexible composition
+- Shared state without prop drilling
+- Clear, readable API: `<Card><Card.Header>...</Card.Header><Card.Body>...</Card.Body></Card>`
+
+---
+
+## Controlled & uncontrolled patterns
+
+Components can be **controlled** (parent owns state) or **uncontrolled** (internal state). The library supports both.
+
+### Controlled
+
+```tsx
+const [value, setValue] = useState('');
+<Input value={value} onChange={(e) => setValue(e.target.value)} />
+```
+
+### Uncontrolled
+
+```tsx
+<Input defaultValue="initial" ref={inputRef} />
+```
+
+### Implementation pattern
+
+1. Check if a controlled prop is defined: `const isControlled = value !== undefined`
+2. Use internal state for uncontrolled: `const [internal, setInternal] = useState(defaultValue)`
+3. Derive the effective value: `const effective = isControlled ? value : internal`
+4. On change: update internal if uncontrolled, call `onChange` in both cases
+
+Example from `DatePicker`, `Input`, `Select`:
+
+```tsx
+const isControlled = valueProp !== undefined;
+const [internalValue, setInternalValue] = useState(defaultValue);
+const value = isControlled ? valueProp : internalValue;
+
+const handleChange = (newVal) => {
+  if (!isControlled) setInternalValue(newVal);
+  onChange?.(newVal);
+};
+```
+
+---
+
+## Versioning & changelog
+
+The library follows **Semantic Versioning** (SemVer):
+
+- **MAJOR** – Breaking changes
+- **MINOR** – New features (backward compatible)
+- **PATCH** – Bug fixes (backward compatible)
+
+### CHANGELOG
+
+See `CHANGELOG.md` in the repo for a detailed history of changes per version.
+
+### Staying updated
+
+```bash
+npm update @mohammadsalman/storybook-custom-ui
+```
+
+Or check the [GitHub releases](https://github.com/MohSalman/creative-ui-react-ui-library/releases) for release notes.

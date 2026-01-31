@@ -1,0 +1,36 @@
+.appshell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.appshell-header {
+  flex-shrink: 0;
+}
+
+.appshell-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.appshell-body--with-sidebar {
+  flex: 1;
+}
+
+.appshell-sidebar {
+  flex-shrink: 0;
+  overflow: auto;
+}
+
+.appshell-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.appshell-footer {
+  flex-shrink: 0;
+  margin-top: auto;
+}

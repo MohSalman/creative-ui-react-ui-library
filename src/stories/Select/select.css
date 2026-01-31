@@ -1,0 +1,239 @@
+/* ========== Select root ========== */
+.select-root {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: inherit;
+  text-align: left;
+}
+
+.select-root--fullWidth {
+  width: 100%;
+}
+
+/* ========== Label ========== */
+.select-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-dark, #212529);
+  margin-bottom: 0.125rem;
+  cursor: default;
+}
+
+.select-root--error .select-label {
+  color: var(--color-danger, #dc3545);
+}
+
+.select-root--disabled .select-label {
+  color: var(--color-disabled, #6c757d);
+}
+
+/* ========== Trigger ========== */
+.select-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 10rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-dark, #212529);
+  background-color: #fff;
+  border: 1px solid var(--color-border, #dee2e6);
+  border-radius: var(--border-radius-sm, 0.25rem);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  gap: 0.5rem;
+}
+
+.select-trigger:hover:not(.select-trigger:focus) {
+  border-color: var(--color-dark, #212529);
+}
+
+.select-root--open .select-trigger {
+  outline: none;
+  border-color: var(--color-primary, #0d6efd);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+}
+
+.select-root--error .select-trigger {
+  border-color: var(--color-danger, #dc3545);
+}
+
+.select-root--error.select-root--open .select-trigger {
+  border-color: var(--color-danger, #dc3545);
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+.select-root--disabled .select-trigger {
+  background-color: var(--color-disabled-bg, #e9ecef);
+  border-color: var(--color-border, #dee2e6);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.select-value {
+  flex: 1;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.select-value--placeholder {
+  color: var(--color-disabled, #6c757d);
+}
+
+/* ========== Icons (clear + chevron) ========== */
+.select-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.select-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-dark, #6c757d);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.select-clear:hover {
+  color: var(--color-danger, #dc3545);
+  background-color: rgba(220, 53, 69, 0.08);
+}
+
+.select-clear:focus-visible {
+  outline: 2px solid var(--color-primary, #0d6efd);
+  outline-offset: 2px;
+}
+
+.select-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-dark, #6c757d);
+  transition: transform 0.2s;
+}
+
+.select-root--open .select-chevron {
+  transform: rotate(180deg);
+}
+
+/* ========== Dropdown ========== */
+.select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  max-height: 16rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid var(--color-border, #dee2e6);
+  border-radius: var(--border-radius-sm, 0.25rem);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+/* ========== Search ========== */
+.select-search-wrap {
+  flex-shrink: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--color-border, #dee2e6);
+}
+
+.select-search {
+  width: 84%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: var(--color-dark, #212529);
+  background-color: #fff;
+  border: 1px solid var(--color-border, #dee2e6);
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.select-search:focus {
+  border-color: var(--color-primary, #0d6efd);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
+}
+
+.select-search::placeholder {
+  color: var(--color-disabled, #6c757d);
+}
+
+/* ========== Options list ========== */
+.select-options {
+  overflow-y: auto;
+  padding: 0.25rem;
+  max-height: 14rem;
+}
+
+.select-empty {
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--color-disabled, #6c757d);
+  text-align: center;
+}
+
+.select-option {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--color-dark, #212529);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: background-color 0.15s;
+}
+
+.select-option:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.select-option--selected {
+  background-color: rgba(13, 110, 253, 0.1);
+  color: var(--color-primary, #0d6efd);
+  font-weight: 500;
+}
+
+.select-option--selected:hover {
+  background-color: rgba(13, 110, 253, 0.15);
+}
+
+/* ========== Sizes ========== */
+.select-root--small .select-trigger {
+  padding: 0.375rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.select-root--large .select-trigger {
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+}
+
+/* ========== Helper text ========== */
+.select-helper {
+  font-size: 0.75rem;
+  color: var(--color-dark, #6c757d);
+  margin: 0;
+  padding: 0.25rem 0 0;
+}
+
+.select-helper--error {
+  color: var(--color-danger, #dc3545);
+}

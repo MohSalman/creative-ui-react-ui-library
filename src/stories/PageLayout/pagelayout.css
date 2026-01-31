@@ -1,0 +1,18 @@
+.pagelayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.pagelayout-header {
+  flex-shrink: 0;
+}
+
+.pagelayout-main {
+  flex: 1;
+  min-height: 0;
+}
+
+.pagelayout-footer {
+  flex-shrink: 0;
+}

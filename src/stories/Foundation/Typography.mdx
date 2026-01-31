@@ -1,0 +1,40 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundation/Typography" />
+
+# Typography
+
+Font families, sizes, weights, and line heights.
+
+## Font Family
+
+- **Primary**: Inter, sans-serif
+
+## Font Sizes
+
+| Token | Value | Use case |
+|-------|-------|----------|
+| `xs` | 12px | Captions, labels |
+| `sm` | 14px | Body small |
+| `md` | 16px | Body |
+| `lg` | 18px | Subheadings |
+| `xl` | 20px | Headings |
+| `xxl` | 22px | Display |
+
+## Font Weights
+
+| Token | Value |
+|-------|-------|
+| `light` | 300 |
+| `regular` | 400 |
+| `medium` | 500 |
+| `bold` | 700 |
+
+## Usage
+
+```css
+font-family: var(--font-family);
+font-size: var(--font-size-md);
+font-weight: var(--font-weight-medium);
+line-height: var(--line-height-md);
+```

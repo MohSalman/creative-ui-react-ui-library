@@ -1,0 +1,19 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Hooks/useDebounce" />
+
+# useDebounce
+
+Hook to debounce a value by a delay.
+
+## Status
+
+**Coming soon.** Useful for search inputs, resize handlers, etc.
+
+## Planned API
+
+```tsx
+const [query, setQuery] = useState('');
+const debouncedQuery = useDebounce(query, 300);
+// debouncedQuery updates 300ms after query stops changing
+```

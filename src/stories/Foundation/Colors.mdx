@@ -1,0 +1,37 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundation/Colors" />
+
+# Colors
+
+Semantic color tokens used across the design system.
+
+## Palette
+
+| Token | Light | Usage |
+|-------|-------|-------|
+| `primary` | `#2563EB` | Brand, primary actions |
+| `secondary` | `#64748B` | Subtle UI elements |
+| `success` | `#16A34A` | Success states |
+| `danger` | `#DC2626` | Errors, destructive actions |
+| `warning` | `#F59E0B` | Warnings |
+| `info` | `#0EA5E9` | Info messages |
+| `background` | `#ffffff` | Page background |
+| `surface` | `#ffffff` | Card/panel background |
+| `light` | `#F8FAFC` | Muted backgrounds |
+| `dark` | `#0F172A` | Text, headers |
+| `disabled` | `#CBD5E1` | Disabled states |
+
+## Usage
+
+Use CSS variables in your components:
+
+```css
+color: var(--color-primary);
+background: var(--color-surface);
+border-color: var(--color-danger);
+```
+
+## Dark Mode
+
+All tokens have dark-mode equivalents. Toggle via `ThemeProvider` or `data-theme="dark"`.

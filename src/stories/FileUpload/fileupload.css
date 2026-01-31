@@ -1,0 +1,209 @@
+.fileupload-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: inherit;
+  width: 100%;
+}
+
+.fileupload-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-dark, #212529);
+  margin-bottom: 0.125rem;
+}
+
+.fileupload-root--error .fileupload-label {
+  color: var(--color-danger, #dc3545);
+}
+
+.fileupload-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 8rem;
+  padding: 1.5rem;
+  border: 2px dashed var(--color-border, #dee2e6);
+  border-radius: var(--border-radius-sm, 0.5rem);
+  background-color: #fafafa;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.fileupload-zone:hover {
+  border-color: var(--color-primary, #0d6efd);
+  background-color: rgba(13, 110, 253, 0.04);
+}
+
+.fileupload-zone:focus-visible {
+  outline: none;
+  border-color: var(--color-primary, #0d6efd);
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+.fileupload-root--dragOver .fileupload-zone {
+  border-color: var(--color-primary, #0d6efd);
+  background-color: rgba(13, 110, 253, 0.08);
+}
+
+.fileupload-root--error .fileupload-zone {
+  border-color: var(--color-danger, #dc3545);
+  background-color: rgba(220, 53, 69, 0.04);
+}
+
+.fileupload-root--disabled .fileupload-zone {
+  cursor: not-allowed;
+  opacity: 0.65;
+  background-color: var(--color-disabled-bg, #e9ecef);
+}
+
+.fileupload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.fileupload-icon {
+  color: var(--color-dark, #94a3b8);
+  flex-shrink: 0;
+}
+
+.fileupload-root--dragOver .fileupload-icon,
+.fileupload-zone:hover .fileupload-icon {
+  color: var(--color-primary, #0d6efd);
+}
+
+.fileupload-text {
+  font-size: 0.875rem;
+  color: var(--color-dark, #64748b);
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileupload-zone:hover .fileupload-text {
+  color: var(--color-dark, #475569);
+}
+
+/* Preview */
+.fileupload-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.fileupload-preview-item {
+  flex-shrink: 0;
+}
+
+.fileupload-preview-thumb {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  border: 1px solid var(--color-border, #e2e8f0);
+  background: #fff;
+}
+
+.fileupload-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fileupload-preview-remove {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.fileupload-preview-remove:hover {
+  background: var(--color-danger, #dc3545);
+}
+
+.fileupload-preview-remove:focus-visible {
+  outline: 2px solid var(--color-primary, #0d6efd);
+  outline-offset: 2px;
+}
+
+.fileupload-preview-file {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  min-width: 8rem;
+  max-width: 12rem;
+  background: #fff;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 0.375rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.fileupload-preview-file:hover {
+  border-color: var(--color-primary, #0d6efd);
+}
+
+.fileupload-preview-file-icon {
+  flex-shrink: 0;
+  color: var(--color-dark, #64748b);
+}
+
+.fileupload-preview-file-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.8125rem;
+  color: var(--color-dark, #334155);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileupload-preview-remove--card {
+  position: static;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: transparent;
+  color: var(--color-dark, #64748b);
+  flex-shrink: 0;
+}
+
+.fileupload-preview-remove--card:hover {
+  background: rgba(220, 53, 69, 0.1);
+  color: var(--color-danger, #dc3545);
+}
+
+.fileupload-helper {
+  font-size: 0.75rem;
+  color: var(--color-dark, #6c757d);
+  margin: 0;
+  padding: 0.25rem 0 0;
+}
+
+.fileupload-helper--error {
+  color: var(--color-danger, #dc3545);
+}

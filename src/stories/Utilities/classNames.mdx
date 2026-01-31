@@ -1,0 +1,24 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Utilities/classNames" />
+
+# classNames (cn)
+
+Utility to combine class names, filtering out falsy values.
+
+## Usage
+
+```tsx
+import { cn } from '@/utils';
+
+cn('base', condition && 'active', disabled && 'disabled');
+// => 'base active' (when condition true, disabled false)
+```
+
+## API
+
+```ts
+cn(...classes: (string | undefined | null | boolean)[]): string
+```
+
+Falsy values (`undefined`, `null`, `false`, `''`) are omitted from the result.

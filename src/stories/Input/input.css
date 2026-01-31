@@ -1,0 +1,359 @@
+/* ========== Root ========== */
+.input-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: inherit;
+  text-align: left;
+}
+
+.input-root--fullWidth {
+  width: 100%;
+}
+
+/* ========== Label ========== */
+.input-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-dark, #212529);
+  margin-bottom: 0.125rem;
+  cursor: pointer;
+}
+
+.input-root--error .input-label {
+  color: var(--color-danger, #dc3545);
+}
+
+.input-root--disabled .input-label {
+  color: var(--color-disabled, #6c757d);
+  cursor: not-allowed;
+}
+
+/* ========== Wrapper (input + adornments) ========== */
+.input-wrapper {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  border-radius: var(--border-radius-sm, 0.25rem);
+  background-color: transparent;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+/* ========== Variant: Outlined ========== */
+.input-root--outlined .input-wrapper {
+  border: 1px solid var(--color-border, #dee2e6);
+  background-color: var(--input-bg, #fff);
+}
+
+.input-root--outlined:not(.input-root--disabled) .input-wrapper:hover {
+  border-color: var(--color-dark, #212529);
+}
+
+.input-root--outlined.input-root--error .input-wrapper {
+  border-color: var(--color-danger, #dc3545);
+  border-width: 1px;
+}
+
+.input-root--outlined .input-wrapper:focus-within {
+  outline: none;
+  border-color: var(--color-primary, #0d6efd);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+}
+
+.input-root--outlined.input-root--error .input-wrapper:focus-within {
+  border-color: var(--color-danger, #dc3545);
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+.input-root--outlined.input-root--disabled .input-wrapper {
+  background-color: var(--color-disabled-bg, #e9ecef);
+  border-color: var(--color-border, #dee2e6);
+  cursor: not-allowed;
+}
+
+/* ========== Variant: Underline ========== */
+.input-root--underline .input-wrapper {
+  border: none;
+  border-bottom: 1px solid var(--color-border, #dee2e6);
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.input-root--underline:not(.input-root--disabled) .input-wrapper:hover {
+  border-bottom-color: var(--color-dark, #212529);
+}
+
+.input-root--underline.input-root--error .input-wrapper {
+  border-bottom-color: var(--color-danger, #dc3545);
+}
+
+.input-root--underline .input-wrapper:focus-within {
+  outline: none;
+  border-bottom-width: 2px;
+  border-bottom-color: var(--color-primary, #0d6efd);
+  margin-bottom: -1px;
+}
+
+.input-root--underline.input-root--error .input-wrapper:focus-within {
+  border-bottom-color: var(--color-danger, #dc3545);
+}
+
+.input-root--underline.input-root--disabled .input-wrapper {
+  border-bottom-color: var(--color-border, #dee2e6);
+  background-color: transparent;
+  cursor: not-allowed;
+}
+
+/* ========== Variant: Standard (no border) ========== */
+.input-root--standard .input-wrapper {
+  border: none;
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.input-root--standard:not(.input-root--disabled) .input-wrapper:hover {
+  background-color: var(--input-hover-bg, rgba(0, 0, 0, 0.04));
+}
+
+.input-root--standard.input-root--error .input-wrapper {
+  border-bottom-color: var(--color-danger, #dc3545);
+}
+
+.input-root--standard .input-wrapper:focus-within {
+  outline: none;
+  background-color: var(--input-focus-bg, rgba(0, 0, 0, 0.06));
+}
+
+.input-root--standard.input-root--error .input-wrapper:focus-within {
+  border-bottom: 1px solid var(--color-danger, #dc3545);
+}
+
+.input-root--standard.input-root--disabled .input-wrapper {
+  background-color: var(--color-disabled-bg, #e9ecef);
+  cursor: not-allowed;
+}
+
+/* ========== Adornments (prefix, postfix, icons) ========== */
+.input-adornment {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-dark, #212529);
+  padding: 0 0.75rem;
+}
+
+.input-adornment--start {
+  padding-right: 0;
+  border-right: none;
+}
+
+.input-root--outlined .input-adornment--start {
+  padding-left: 0.75rem;
+}
+
+.input-root--underline .input-adornment--start,
+.input-root--standard .input-adornment--start {
+  padding-left: 0;
+}
+
+.input-adornment--end {
+  padding-left: 0;
+}
+
+.input-root--outlined .input-adornment--end {
+  padding-right: 0.75rem;
+}
+
+.input-root--underline .input-adornment--end,
+.input-root--standard .input-adornment--end {
+  padding-right: 0;
+}
+
+.input-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-dark, #6c757d);
+  flex-shrink: 0;
+}
+
+.input-icon--start {
+  margin-right: 0.5rem;
+}
+
+.input-icon--end {
+  margin-left: 0.5rem;
+}
+
+/* Clickable icon button (e.g. password visibility toggle) */
+.input-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  margin: 0;
+  margin-left: 0.5rem;
+  border: none;
+  background: none;
+  color: var(--color-dark, #6c757d);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.input-icon-button:hover:not(:disabled) {
+  color: var(--color-primary, #0d6efd);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.input-icon-button:focus-visible {
+  outline: 2px solid var(--color-primary, #0d6efd);
+  outline-offset: 2px;
+}
+
+.input-icon-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.input-root--error .input-icon-button {
+  color: var(--color-danger, #dc3545);
+}
+
+.input-root--error .input-icon-button:hover:not(:disabled) {
+  color: var(--color-danger, #dc3545);
+  background-color: rgba(220, 53, 69, 0.08);
+}
+
+.input-root--error .input-icon {
+  color: var(--color-danger, #dc3545);
+}
+
+.input-root--disabled .input-adornment,
+.input-root--disabled .input-icon {
+  color: var(--color-disabled, #6c757d);
+}
+
+.input-prefix,
+.input-postfix {
+  font-size: 0.875rem;
+  color: var(--color-dark, #6c757d);
+}
+
+.input-prefix {
+  padding-right: 0.5rem;
+}
+
+.input-postfix {
+  padding-left: 0.5rem;
+}
+
+/* ========== Input field ========== */
+.input-field {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-dark, #212529);
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+.input-field::placeholder {
+  color: var(--color-disabled, #6c757d);
+}
+
+.input-field:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Outlined padding with adornments */
+.input-root--outlined.input-root--has-start .input-field {
+  padding-left: 0.5rem;
+}
+
+.input-root--outlined.input-root--has-end .input-field {
+  padding-right: 0.5rem;
+}
+
+.input-root--outlined:not(.input-root--has-start) .input-field {
+  padding-left: 0.75rem;
+}
+
+.input-root--outlined:not(.input-root--has-end) .input-field {
+  padding-right: 0.75rem;
+}
+
+/* Underline / standard padding with adornments */
+.input-root--underline .input-field,
+.input-root--standard .input-field {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.input-root--underline.input-root--has-start .input-field,
+.input-root--standard.input-root--has-start .input-field {
+  padding-left: 0.5rem;
+}
+
+.input-root--underline.input-root--has-end .input-field,
+.input-root--standard.input-root--has-end .input-field {
+  padding-right: 0.5rem;
+}
+
+/* ========== Sizes ========== */
+.input-root--small .input-field {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.input-root--small .input-adornment {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.input-root--large .input-field {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.input-root--large .input-adornment {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.input-root--large .input-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ========== Helper text ========== */
+.input-helper-text {
+  font-size: 0.75rem;
+  color: var(--color-dark, #6c757d);
+  margin: 0;
+  padding: 0.25rem 0 0;
+  min-height: 1.25rem;
+}
+
+.input-helper-text--error {
+  color: var(--color-danger, #dc3545);
+}
+
+.input-root--disabled .input-helper-text {
+  color: var(--color-disabled, #6c757d);
+}

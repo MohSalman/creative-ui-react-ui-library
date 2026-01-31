@@ -1,0 +1,34 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundation/Spacing" />
+
+# Spacing
+
+Consistent spacing scale for padding, margin, and gaps.
+
+## Scale
+
+| Token | Value | Use case |
+|-------|-------|----------|
+| `xs` | 4px | Tight spacing |
+| `sm` | 8px | Compact |
+| `md` | 16px | Default |
+| `lg` | 24px | Relaxed |
+| `xl` | 32px | Section gaps |
+| `xxl` | 48px | Major sections |
+
+## Usage
+
+Use with Layout primitives (`Box`, `Stack`, `Flex`) or CSS:
+
+```css
+padding: var(--spacing-md);
+gap: var(--spacing-lg);
+margin-bottom: var(--spacing-xl);
+```
+
+## Rules
+
+- Prefer spacing tokens over arbitrary values.
+- Use multiples of 4px for custom values.
+- Maintain consistent rhythm within components.

@@ -1,20 +1,34 @@
 import { useEffect, type ReactNode } from "react";
 import type { Theme, ThemeContextValue } from "./types";
 import { defaultTheme } from "./defaultTheme";
+import { darkTheme } from "./darkTheme";
 import { ThemeContext } from "./ThemeContext";
+
+export type ThemeMode = 'light' | 'dark';
 
 export interface ThemeProviderProps {
     theme?: Theme;
+    /** Light or dark mode - merges with theme when set */
+    mode?: ThemeMode;
+    /** Called when mode changes (e.g. from a toggle) */
+    onModeChange?: (mode: ThemeMode) => void;
     children: ReactNode;
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({
-    theme = defaultTheme,
+    theme: themeProp,
+    mode = 'light',
+    onModeChange,
     children,
 }) => {
+    const theme = themeProp ?? (mode === 'dark' ? darkTheme : defaultTheme);
+
     // Set CSS custom properties from theme
     useEffect(() => {
         const root = document.documentElement;
+
+        // Set mode for CSS
+        root.setAttribute('data-theme', mode);
 
         // Set color variables
         if (theme.colors) {
@@ -36,10 +50,12 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
                 root.style.setProperty(`--font-weight-${key}`, String(value));
             });
         }
-    }, [theme]);
+    }, [theme, mode]);
 
     const contextValue: ThemeContextValue = {
         theme,
+        mode,
+        setMode: onModeChange,
     };
     return (
         <ThemeContext.Provider value={contextValue}>
