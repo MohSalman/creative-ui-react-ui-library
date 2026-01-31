@@ -24,7 +24,9 @@ export default defineConfig({
     },
     cssCodeSplit: false,
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      // Do not bundle React: the library must use whatever React the host app provides
+      // (required for Module Federation and to avoid "two Reacts" / ReactCurrentDispatcher errors).
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
       output: {
         globals: {
           react: 'React',
