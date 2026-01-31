@@ -29,7 +29,7 @@ export const AppShell: React.FC<AppShellProps> = ({
   return (
     <div className={cn('appshell', className)} {...props}>
       {header && <div className="appshell-header">{header}</div>}
-      <div className={cn('appshell-body', sidebar && 'appshell-body--with-sidebar')}>
+      <div className={cn('appshell-body', !!sidebar && 'appshell-body--with-sidebar')}>
         {sidebar && (
           <div
             className={cn(
