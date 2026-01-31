@@ -1,0 +1,31 @@
+.formfield-root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.formfield-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-dark, #212529);
+  cursor: pointer;
+}
+
+.formfield-root--error .formfield-label {
+  color: var(--color-danger, #dc3545);
+}
+
+.formfield-required {
+  color: var(--color-danger, #dc3545);
+}
+
+.formfield-helper {
+  font-size: 0.75rem;
+  color: var(--color-secondary, #64748b);
+  margin: 0;
+}
+
+.formfield-helper--error {
+  color: var(--color-danger, #dc3545);
+}

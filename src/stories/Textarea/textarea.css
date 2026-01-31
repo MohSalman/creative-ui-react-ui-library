@@ -1,0 +1,126 @@
+.textarea-root {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: inherit;
+  text-align: left;
+}
+
+.textarea-root--fullWidth {
+  width: 100%;
+}
+
+.textarea-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-dark, #212529);
+  margin-bottom: 0.125rem;
+}
+
+.textarea-root--error .textarea-label {
+  color: var(--color-danger, #dc3545);
+}
+
+.textarea-wrapper {
+  display: inline-flex;
+  width: 100%;
+  min-width: 0;
+  border-radius: var(--border-radius-sm, 0.25rem);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.textarea-root--outlined .textarea-wrapper {
+  border: 1px solid var(--color-border, #dee2e6);
+  background-color: #fff;
+}
+
+.textarea-root--outlined:not(.textarea-root--disabled) .textarea-wrapper:hover {
+  border-color: var(--color-dark, #212529);
+}
+
+.textarea-root--outlined.textarea-root--error .textarea-wrapper {
+  border-color: var(--color-danger, #dc3545);
+}
+
+.textarea-root .textarea-wrapper:focus-within {
+  outline: none;
+  border-color: var(--color-primary, #0d6efd);
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+}
+
+.textarea-root--underline .textarea-wrapper {
+  border: none;
+  border-bottom: 1px solid var(--color-border, #dee2e6);
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.textarea-root--standard .textarea-wrapper {
+  border: none;
+  background-color: transparent;
+}
+
+.textarea-field {
+  width: 100%;
+  min-width: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-dark, #212529);
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.textarea-field--resize-none {
+  resize: none;
+}
+
+.textarea-field--resize-vertical {
+  resize: vertical;
+}
+
+.textarea-field--resize-horizontal {
+  resize: horizontal;
+}
+
+.textarea-field--resize-both {
+  resize: both;
+}
+
+.textarea-field::placeholder {
+  color: var(--color-disabled, #6c757d);
+}
+
+.textarea-root--small .textarea-field {
+  padding: 0.375rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.textarea-root--large .textarea-field {
+  padding: 0.75rem 1rem;
+  font-size: 1.125rem;
+}
+
+.textarea-root--disabled .textarea-wrapper {
+  background-color: var(--color-disabled-bg, #e9ecef);
+  cursor: not-allowed;
+}
+
+.textarea-root--outlined.textarea-root--disabled .textarea-wrapper {
+  border-color: var(--color-border, #dee2e6);
+}
+
+.textarea-helper {
+  font-size: 0.75rem;
+  color: var(--color-dark, #6c757d);
+  margin: 0;
+  padding: 0.25rem 0 0;
+}
+
+.textarea-helper--error {
+  color: var(--color-danger, #dc3545);
+}

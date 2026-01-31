@@ -1,0 +1,30 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundation/Shadows" />
+
+# Shadows
+
+Elevation and depth via box shadows.
+
+## Scale
+
+| Token | Use case |
+|-------|----------|
+| `xs` | Subtle lift, hover states |
+| `sm` | Cards, dropdowns |
+| `md` | Modals, popovers |
+| `lg` | Sticky headers, drawers |
+| `xl` | Full overlays |
+
+## Usage
+
+```css
+box-shadow: var(--shadow-sm);
+box-shadow: var(--shadow-md);
+```
+
+## Guidelines
+
+- Reserve stronger shadows for higher z-index layers.
+- Dark mode should use softer or tinted shadows.
+- Avoid stacking multiple shadows on the same element.

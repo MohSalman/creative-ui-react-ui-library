@@ -1,0 +1,16 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid;
+}
+.alert--info { background: rgba(14, 165, 233, 0.1); border-color: rgba(14, 165, 233, 0.3); color: #0c4a6e; }
+.alert--success { background: rgba(22, 163, 74, 0.1); border-color: rgba(22, 163, 74, 0.3); color: #14532d; }
+.alert--warning { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #78350f; }
+.alert--danger { background: rgba(220, 38, 38, 0.1); border-color: rgba(220, 38, 38, 0.3); color: #7f1d1d; }
+.alert-content { flex: 1; }
+.alert-title { margin: 0; font-weight: 600; }
+.alert-message { margin: 0.25rem 0 0; font-size: 0.875rem; }
+.alert-close { background: none; border: none; font-size: 1.25rem; cursor: pointer; opacity: 0.7; }

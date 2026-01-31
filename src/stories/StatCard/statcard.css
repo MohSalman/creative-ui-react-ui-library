@@ -1,0 +1,12 @@
+.statcard {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--color-surface, #fff);
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-md, 8px);
+}
+.statcard-icon { font-size: 1.5rem; color: var(--color-primary, #2563eb); }
+.statcard-title { margin: 0; font-size: 0.875rem; color: var(--color-secondary, #64748b); }
+.statcard-value { margin: 0.25rem 0 0; font-size: 1.5rem; font-weight: 700; }
+.statcard-subtitle { margin: 0.25rem 0 0; font-size: 0.75rem; color: var(--color-secondary, #64748b); }

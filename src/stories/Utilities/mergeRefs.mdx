@@ -1,0 +1,18 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Utilities/mergeRefs" />
+
+# mergeRefs
+
+Utility to merge multiple refs into a single ref callback.
+
+## Status
+
+**Coming soon.** Useful when a component needs to forward a ref and also use an internal ref.
+
+## Planned API
+
+```tsx
+const mergedRef = mergeRefs(ref, internalRef);
+<input ref={mergedRef} />
+```

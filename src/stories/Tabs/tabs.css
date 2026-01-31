@@ -1,0 +1,66 @@
+.tabs {
+  width: 100%;
+}
+
+.tabs-list {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+}
+
+.tabs-trigger {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--color-dark, #64748b);
+  background: none;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.tabs-trigger:hover:not(.tabs-trigger--disabled) {
+  color: var(--color-primary, #0d6efd);
+}
+
+.tabs-trigger--active {
+  color: var(--color-primary, #0d6efd);
+}
+
+.tabs-trigger--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tabs--default .tabs-trigger--active {
+  background: rgba(13, 110, 253, 0.08);
+}
+
+.tabs--underline .tabs-list {
+  border-bottom: 2px solid var(--color-border, #e2e8f0);
+}
+
+.tabs--underline .tabs-trigger--active {
+  border-bottom: 2px solid var(--color-primary, #0d6efd);
+  margin-bottom: -2px;
+}
+
+.tabs--pills .tabs-list {
+  border-bottom: none;
+  gap: 0.5rem;
+}
+
+.tabs--pills .tabs-trigger--active {
+  background: var(--color-primary, #0d6efd);
+  color: #fff;
+}
+
+.tabs--pills .tabs-trigger--active:hover {
+  color: #fff;
+}
+
+.tabs-panel {
+  padding: 1rem 0;
+}

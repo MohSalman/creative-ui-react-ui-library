@@ -1,7 +1,7 @@
 {
   "name": "@mohammadsalman/storybook-custom-ui",
   "description": "A minimal React TypeScript component library with Button component and useFormInput hook",
-  "version": "1.0.15",
+  "version": "1.2.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -31,11 +31,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/generate-dts.js",
+    "build": "tsc -b tsconfig.build.json && vite build && node scripts/generate-dts.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-storybook": "vitest run --project=storybook",
+    "test-storybook:watch": "vitest --project=storybook",
+    "test-storybook:coverage": "vitest run --project=storybook --coverage"
   },
   "peerDependencies": {
     "react": "^19.2.0",

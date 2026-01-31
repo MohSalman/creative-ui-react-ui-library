@@ -73,5 +73,7 @@ export interface Theme {
 
 export interface ThemeContextValue {
     theme: Theme;
+    mode?: 'light' | 'dark';
+    setMode?: (mode: 'light' | 'dark') => void;
     setTheme?: (theme: Theme) => void;
   }

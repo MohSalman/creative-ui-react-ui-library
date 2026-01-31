@@ -1,0 +1,118 @@
+/* ========== Radio root ========== */
+.radio-root {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-dark, #212529);
+  user-select: none;
+}
+
+.radio-root--without-text {
+  gap: 0;
+}
+
+.radio-root--disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+/* Hide native input, style our dot */
+.radio-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.radio-input:focus-visible + .radio-dot {
+  outline: 2px solid var(--color-primary, #0d6efd);
+  outline-offset: 2px;
+}
+
+.radio-input:checked + .radio-dot {
+  border-color: var(--color-primary, #0d6efd);
+}
+
+.radio-input:checked + .radio-dot::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.radio-input:disabled + .radio-dot {
+  background-color: var(--color-disabled-bg, #e9ecef);
+  border-color: var(--color-border, #dee2e6);
+  cursor: not-allowed;
+}
+
+.radio-input:checked:disabled + .radio-dot {
+  border-color: var(--color-disabled, #6c757d);
+}
+
+.radio-input:checked:disabled + .radio-dot::after {
+  background-color: var(--color-disabled, #6c757d);
+}
+
+/* Custom circle */
+.radio-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--color-border, #dee2e6);
+  border-radius: 50%;
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.radio-dot::after {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-primary, #0d6efd);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.radio-root:not(.radio-root--disabled):hover .radio-dot {
+  border-color: var(--color-primary, #0d6efd);
+}
+
+/* Sizes */
+.radio-root--small .radio-dot {
+  width: 1rem;
+  height: 1rem;
+}
+
+.radio-root--small .radio-dot::after {
+  width: 0.35rem;
+  height: 0.35rem;
+}
+
+.radio-root--large .radio-dot {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.radio-root--large .radio-dot::after {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+/* Label text */
+.radio-label-text {
+  font-size: inherit;
+  color: inherit;
+}

@@ -1,0 +1,17 @@
+.maincontent {
+  flex: 1;
+  min-width: 0;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.maincontent--max-sm { max-width: 640px; }
+.maincontent--max-md { max-width: 768px; }
+.maincontent--max-lg { max-width: 1024px; }
+.maincontent--max-xl { max-width: 1280px; }
+.maincontent--max-full { max-width: none; }
+
+.maincontent--padding-none { padding: 0; }
+.maincontent--padding-sm { padding: 1rem; }
+.maincontent--padding-md { padding: 1.5rem; }
+.maincontent--padding-lg { padding: 2rem; }

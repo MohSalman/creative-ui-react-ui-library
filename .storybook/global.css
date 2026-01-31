@@ -1,3 +1,16 @@
+/* Theme mode - dark/light */
+[data-theme='dark'] {
+  --color-background: #0F172A;
+  --color-surface: #1E293B;
+  --color-text: #F8FAFC;
+}
+
+[data-theme='light'] {
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #0F172A;
+}
+
 /* Global styles for Storybook - Add padding around all stories */
 .sb-story,
 [data-story],

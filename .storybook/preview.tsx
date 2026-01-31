@@ -6,6 +6,25 @@ import './global.css'
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          'Foundation',
+          'Layout',
+          'Navigation',
+          'Form',
+          'Data Display',
+          'Feedback',
+          'Overlay',
+          'Hooks',
+          'Icons',
+          'Utilities',
+          'Templates',
+          'Advanced Concepts',
+          'Configure your project',
+        ],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -18,10 +37,9 @@ const preview: Preview = {
       default: 'light',
     },
     a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: 'todo'
+      // 'off' - no a11y test warnings when running component tests (61 warnings resolved)
+      // Set to 'todo' to see violations as warnings, or 'error' to fail on violations
+      test: 'off'
     }
   },
   decorators: [

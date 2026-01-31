@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Foundation/Themes" />
+
+# Themes
+
+Light and dark theme support.
+
+## Modes
+
+- **Light** – Default theme for most surfaces.
+- **Dark** – Inverted colors for low-light environments.
+
+## Usage
+
+Wrap your app with `ThemeProvider`:
+
+```tsx
+import { ThemeProvider } from '@/theme';
+
+<ThemeProvider mode="light" onModeChange={setMode}>
+  <App />
+</ThemeProvider>
+```
+
+## Switching Themes
+
+Use the `useTheme` hook:
+
+```tsx
+const { mode, setMode } = useTheme();
+setMode('dark');
+```
+
+## Data Attribute
+
+Themes apply via `data-theme` on `document.documentElement`:
+
+- `data-theme="light"`
+- `data-theme="dark"`
+
+All design tokens are exposed as CSS variables and update automatically.
